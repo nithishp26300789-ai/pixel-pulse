@@ -1,0 +1,403 @@
+
+/* =========================
+   PIXEL PULSE COLOUR SYSTEM
+========================= */
+
+:root {
+    --brand: #168B83;
+    --brand-dark: #116B64;
+    --background: #F4F7F2;
+    --ink: #183B35;
+    --muted: #71847D;
+    --white: #FFFFFF;
+    --border: #D8E5DC;
+}
+
+
+/* =========================
+   BASIC STYLING
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding: 22px 8%;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 30px;
+    color: var(--brand);
+}
+
+.logo h1 {
+    font-size: 23px;
+    letter-spacing: 2px;
+    color: var(--brand);
+}
+
+.header p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+main {
+    max-width: 1150px;
+    margin: auto;
+    padding: 55px 30px;
+}
+
+
+/* =========================
+   WELCOME SECTION
+========================= */
+
+.welcome {
+    margin-bottom: 35px;
+}
+
+.small-heading {
+    color: var(--brand);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.welcome h2 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.description {
+    color: var(--muted);
+    max-width: 500px;
+}
+
+
+/* =========================
+   SEARCH SECTION
+========================= */
+
+.search-section {
+    margin-bottom: 40px;
+}
+
+.search-form {
+    max-width: 750px;
+}
+
+.search-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+    padding: 9px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+}
+
+.search-box button {
+    background: var(--brand);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    background: var(--brand-dark);
+}
+
+
+/* =========================
+   CATEGORY CHIPS
+========================= */
+
+.categories {
+    margin-bottom: 50px;
+}
+
+.categories h3 {
+    margin-bottom: 15px;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.chip {
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    background: #E5F0E9;
+    color: var(--ink);
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.chip:hover {
+    background: var(--brand);
+    color: var(--white);
+}
+
+
+/* =========================
+   GALLERY SECTION
+========================= */
+
+.gallery-section {
+    margin-top: 30px;
+}
+
+.gallery-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.gallery-heading h3 {
+    font-size: 22px;
+}
+
+.gallery-heading p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+
+/* =========================
+   IMAGE RESULTS GRID
+========================= */
+
+#results {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fill, minmax(220px, 1fr));
+
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+/* =========================
+   IMAGE CARDS
+========================= */
+
+.image-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease;
+}
+
+.image-card:hover {
+    transform: translateY(-5px);
+}
+
+.image-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-card h3 {
+    padding: 12px;
+    font-size: 14px;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+    text-align: center;
+    padding: 65px 20px;
+    border: 2px dashed #BFD7CA;
+    border-radius: 16px;
+    background: #EDF4EF;
+    margin-top: 20px;
+}
+
+.empty-icon {
+    font-size: 55px;
+    color: var(--brand);
+}
+
+.empty-state h2 {
+    margin: 12px 0;
+}
+
+.empty-state p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+    padding: 35px 20px;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+}
+
+.footer h2 {
+    color: var(--brand);
+    letter-spacing: 2px;
+}
+
+.footer p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.copyright {
+    margin-top: 15px;
+}
+
+
+/* =========================
+   FLEXIBLE IMAGES
+========================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   TABLET AND DESKTOP
+========================= */
+
+@media (min-width: 768px) {
+
+    main {
+        padding: 75px 40px;
+    }
+
+    .welcome h2 {
+        font-size: 58px;
+    }
+
+    #results {
+        grid-template-columns:
+            repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+}
+
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 18px 5%;
+    }
+
+    .header p {
+        width: 100%;
+    }
+
+    main {
+        padding: 40px 18px;
+    }
+
+    .welcome h2 {
+        font-size: 35px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+    .gallery-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    #results {
+        grid-template-columns:
+            repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+}
