@@ -1,21 +1,24 @@
 
-// PIXEL PULSE - PART 2
-// Search images using Wikimedia Commons API
+// PIXEL PULSE - PART 3
+// Image search with loading, empty and error states
+
 
 // 1. Get HTML elements
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
 const results = document.getElementById("results");
 const resultCount = document.getElementById("resultCount");
 const emptyState = document.querySelector(".empty-state");
 
+
 // 2. Listen for form submission
 searchForm.addEventListener("submit", async function(event) {
 
-    // Stop page reload
+    // Prevent page reload
     event.preventDefault();
 
-    // Read the search query
+    // Read search query
     const query = searchInput.value.trim();
 
     // Ignore empty searches
@@ -26,10 +29,16 @@ searchForm.addEventListener("submit", async function(event) {
     // Clear previous results
     results.innerHTML = "";
 
-    // Hide empty message while searching
+    // Hide empty state
     emptyState.style.display = "none";
 
-    resultCount.textContent = "Searching...";
+    // PART 3: Loading state
+    resultCount.textContent = "Searching... Please wait.";
+
+    // Disable button while searching
+    searchButton.disabled = true;
+    searchButton.textContent = "Searching...";
+
 
     // 3. Create Wikimedia API URL
     const url =
@@ -44,6 +53,7 @@ searchForm.addEventListener("submit", async function(event) {
         "&iiurlwidth=500" +
         "&format=json" +
         "&origin=*";
+
 
     try {
 
@@ -63,27 +73,41 @@ searchForm.addEventListener("submit", async function(event) {
             ? Object.values(data.query.pages)
             : [];
 
-        // Keep results that have image URLs
+        // Keep results with image URLs
         const images = pages.filter(function(page) {
             return page.imageinfo && page.imageinfo[0];
         });
 
-        // 5. Update result count
+
+        // 5. Check for empty results
+        if (images.length === 0) {
+
+            resultCount.textContent =
+                "No results found for \"" + query + "\"";
+
+            emptyState.style.display = "block";
+
+            emptyState.querySelector("h2").textContent =
+                "No images found!";
+
+            emptyState.querySelector("p").textContent =
+                "Try another search topic.";
+
+            return;
+        }
+
+
+        // 6. Display result count
         resultCount.textContent =
             "Showing " + images.length +
             " results for \"" + query + "\"";
 
-        // Show empty message if nothing was found
-        if (images.length === 0) {
-            emptyState.style.display = "block";
-            emptyState.querySelector("h2").textContent =
-                "No images found";
-            emptyState.querySelector("p").textContent =
-                "Try searching for another topic.";
-            return;
-        }
 
-        // 6. Create an image card for every result
+        // Hide empty state
+        emptyState.style.display = "none";
+
+
+        // 7. Create image cards
         images.forEach(function(image) {
 
             const imageInfo = image.imageinfo[0];
@@ -99,7 +123,7 @@ searchForm.addEventListener("submit", async function(event) {
             img.alt = image.title;
             img.loading = "lazy";
 
-            // Create image title
+            // Create title
             const title = document.createElement("h3");
 
             title.textContent = image.title
@@ -115,14 +139,28 @@ searchForm.addEventListener("submit", async function(event) {
 
         });
 
+
     } catch (error) {
 
+        // PART 3: Error state
+        console.error("Image search error:", error);
+
         resultCount.textContent =
-            "Unable to load images. Please try again.";
+            "Something went wrong. Please try again.";
 
         emptyState.style.display = "block";
 
-        console.error(error);
+        emptyState.querySelector("h2").textContent =
+            "Oops! Something went wrong.";
+
+        emptyState.querySelector("p").textContent =
+            "Please check your internet connection and try again.";
+
+    } finally {
+
+        // Enable button after search finishes
+        searchButton.disabled = false;
+        searchButton.textContent = "Search";
 
     }
 

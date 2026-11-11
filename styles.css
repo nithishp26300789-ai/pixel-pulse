@@ -401,3 +401,39 @@ img {
     }
 
 }
+
+/* PART 3 - LOADING AND ANIMATION */
+
+.search-box button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.image-card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Better mobile image layout */
+
+@media (max-width: 480px) {
+    #results {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .image-card img {
+        height: 150px;
+    }
+}
