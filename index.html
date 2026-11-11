@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pixel Pulse - Image Search</title>
+
+    <!-- CSS connection -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            <h1>PIXEL PULSE</h1>
+        </div>
+
+        <p>Explore the world through images.</p>
+
+    </header>
+
+
+    <!-- Main content -->
+    <main>
+
+        <!-- Welcome section -->
+        <section class="welcome">
+
+            <p class="small-heading">
+                YOUR VISUAL DISCOVERY SPACE
+            </p>
+
+            <h2>
+                Find images.<br>
+                Discover inspiration.
+            </h2>
+
+            <p class="description">
+                Search for beautiful pictures from nature,
+                cities, animals and everything you love.
+            </p>
+
+        </section>
+
+
+        <!-- Search section -->
+        <section class="search-section">
+
+            <form class="search-form" id="searchForm">
+
+                <label for="searchInput">
+                    What are you looking for?
+                </label>
+
+                <div class="search-box">
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Try cats, nature, ocean..."
+                    >
+
+                    <button
+                        type="submit"
+                        id="searchButton"
+                    >
+                        Search
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- Category suggestions -->
+        <section class="categories">
+
+            <h3>Explore popular topics</h3>
+
+            <div class="category-list">
+
+                <button type="button" class="chip">
+                    🌿 Nature
+                </button>
+
+                <button type="button" class="chip">
+                    🏙️ Cities
+                </button>
+
+                <button type="button" class="chip">
+                    🐾 Animals
+                </button>
+
+                <button type="button" class="chip">
+                    🚀 Space
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Image gallery -->
+        <section class="gallery-section">
+
+            <div class="gallery-heading">
+
+                <h3>Discover Gallery</h3>
+
+                <p id="resultCount">
+                    Your results will appear here
+                </p>
+
+            </div>
+
+
+            <!-- JavaScript will insert image cards here -->
+            <div id="results"></div>
+
+
+            <!-- Empty state -->
+            <div class="empty-state">
+
+                <div class="empty-icon">✧</div>
+
+                <h2>Your gallery is waiting!</h2>
+
+                <p>
+                    Search for your favourite topic
+                    and discover amazing images.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <h2>PIXEL PULSE</h2>
+
+        <p>Every picture tells a story.</p>
+
+        <p class="copyright">
+            © 2026 Pixel Pulse. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript connection -->
+    <script src="script.js"></script>
+
+</body>
+</html>
