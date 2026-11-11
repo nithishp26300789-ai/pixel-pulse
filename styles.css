@@ -13,6 +13,7 @@
     --border: #D8E5DC;
 }
 
+
 /* =========================
    BASIC STYLING
 ========================= */
@@ -29,6 +30,7 @@ body {
     color: var(--ink);
     line-height: 1.6;
 }
+
 
 /* =========================
    HEADER
@@ -72,6 +74,7 @@ body {
     font-size: 14px;
 }
 
+
 /* =========================
    MAIN CONTENT
 ========================= */
@@ -81,6 +84,7 @@ main {
     margin: auto;
     padding: 55px 30px;
 }
+
 
 /* =========================
    WELCOME SECTION
@@ -108,6 +112,7 @@ main {
     color: var(--muted);
     max-width: 500px;
 }
+
 
 /* =========================
    SEARCH SECTION
@@ -154,11 +159,13 @@ main {
     padding: 12px 28px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .search-box button:hover {
     background: var(--brand-dark);
 }
+
 
 /* =========================
    CATEGORY CHIPS
@@ -186,12 +193,14 @@ main {
     color: var(--ink);
     font-size: 14px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .chip:hover {
     background: var(--brand);
     color: var(--white);
 }
+
 
 /* =========================
    GALLERY SECTION
@@ -210,20 +219,61 @@ main {
     margin-bottom: 20px;
 }
 
+.gallery-heading h3 {
+    font-size: 22px;
+}
+
 .gallery-heading p {
     font-size: 13px;
     color: var(--muted);
 }
 
-/* Responsive image grid */
+
+/* =========================
+   IMAGE RESULTS GRID
+========================= */
 
 #results {
     display: grid;
     grid-template-columns:
         repeat(auto-fill, minmax(220px, 1fr));
+
     gap: 20px;
     width: 100%;
+    margin-top: 20px;
 }
+
+
+/* =========================
+   IMAGE CARDS
+========================= */
+
+.image-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease;
+}
+
+.image-card:hover {
+    transform: translateY(-5px);
+}
+
+.image-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-card h3 {
+    padding: 12px;
+    font-size: 14px;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+}
+
 
 /* =========================
    EMPTY STATE
@@ -235,6 +285,7 @@ main {
     border: 2px dashed #BFD7CA;
     border-radius: 16px;
     background: #EDF4EF;
+    margin-top: 20px;
 }
 
 .empty-icon {
@@ -249,6 +300,7 @@ main {
 .empty-state p {
     color: var(--muted);
 }
+
 
 /* =========================
    FOOTER
@@ -275,14 +327,20 @@ main {
     margin-top: 15px;
 }
 
+
 /* =========================
-   RESPONSIVE DESIGN
+   FLEXIBLE IMAGES
 ========================= */
 
 img {
     max-width: 100%;
     height: auto;
 }
+
+
+/* =========================
+   TABLET AND DESKTOP
+========================= */
 
 @media (min-width: 768px) {
 
@@ -300,6 +358,11 @@ img {
     }
 
 }
+
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
 
 @media (max-width: 600px) {
 

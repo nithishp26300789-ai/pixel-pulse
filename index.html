@@ -8,6 +8,7 @@
 
     <title>Pixel Pulse - Image Search</title>
 
+    <!-- CSS connection -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -15,34 +16,44 @@
 
     <!-- Header -->
     <header class="header">
+
         <div class="logo">
             <span class="logo-icon">✦</span>
             <h1>PIXEL PULSE</h1>
         </div>
 
         <p>Explore the world through images.</p>
+
     </header>
+
 
     <!-- Main content -->
     <main>
 
         <!-- Welcome section -->
         <section class="welcome">
-            <p class="small-heading">YOUR VISUAL DISCOVERY SPACE</p>
 
-            <h2>Find images.<br>
-                Discover inspiration.</h2>
+            <p class="small-heading">
+                YOUR VISUAL DISCOVERY SPACE
+            </p>
+
+            <h2>
+                Find images.<br>
+                Discover inspiration.
+            </h2>
 
             <p class="description">
                 Search for beautiful pictures from nature,
                 cities, animals and everything you love.
             </p>
+
         </section>
+
 
         <!-- Search section -->
         <section class="search-section">
 
-            <form class="search-form">
+            <form class="search-form" id="searchForm">
 
                 <label for="searchInput">
                     What are you looking for?
@@ -53,12 +64,13 @@
                     <input
                         type="search"
                         id="searchInput"
-                        placeholder="Search images..."
+                        placeholder="Try cats, nature, ocean..."
                     >
 
                     <button
-                        type="button"
-                        id="searchButton">
+                        type="submit"
+                        id="searchButton"
+                    >
                         Search
                     </button>
 
@@ -67,6 +79,7 @@
             </form>
 
         </section>
+
 
         <!-- Category suggestions -->
         <section class="categories">
@@ -95,19 +108,24 @@
 
         </section>
 
-        <!-- Image results -->
+
+        <!-- Image gallery -->
         <section class="gallery-section">
 
             <div class="gallery-heading">
+
                 <h3>Discover Gallery</h3>
 
                 <p id="resultCount">
                     Your results will appear here
                 </p>
+
             </div>
 
-            <!-- Keep this container empty for Part 1 -->
+
+            <!-- JavaScript will insert image cards here -->
             <div id="results"></div>
+
 
             <!-- Empty state -->
             <div class="empty-state">
@@ -127,6 +145,7 @@
 
     </main>
 
+
     <!-- Footer -->
     <footer class="footer">
 
@@ -140,6 +159,8 @@
 
     </footer>
 
+
+    <!-- JavaScript connection -->
     <script src="script.js"></script>
 
 </body>
